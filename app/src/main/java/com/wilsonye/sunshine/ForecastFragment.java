@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
-     * A placeholder fragment containing a simple view. Successfully Checkout
+     * A placeholder fragment containing a simple view for week weather forecast.
      */
     public class ForecastFragment extends Fragment {
 
