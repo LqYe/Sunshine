@@ -56,6 +56,7 @@ public class DetailActivity extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
+
             Intent intent = getActivity().getIntent();
             View rootView = inflater.inflate(R.layout.fragment_detail, container, false);
             if(null!=intent && intent.hasExtra(Intent.EXTRA_TEXT)) {
@@ -63,8 +64,6 @@ public class DetailActivity extends Activity {
                 TextView text = (TextView) rootView.findViewById(R.id.detail_text);
                 text.setText(forecast);
             }
-
-
 
             return rootView;
         }

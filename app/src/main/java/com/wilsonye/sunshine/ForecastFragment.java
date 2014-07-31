@@ -96,6 +96,7 @@ import java.util.List;
                     Toast.makeText(getActivity(),forecast, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getActivity(), DetailActivity.class);
                     intent.putExtra(Intent.EXTRA_TEXT, forecast);
+                    startActivity(intent);
                 }
             });
 
