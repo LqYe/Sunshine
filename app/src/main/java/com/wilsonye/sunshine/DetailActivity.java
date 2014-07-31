@@ -1,17 +1,15 @@
 package com.wilsonye.sunshine;
 
 import android.app.Activity;
-import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
-
-import com.wilsonye.sunshine.R;
+import android.widget.TextView;
 
 public class DetailActivity extends Activity {
 
@@ -19,6 +17,7 @@ public class DetailActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
@@ -57,7 +56,16 @@ public class DetailActivity extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
+            Intent intent = getActivity().getIntent();
             View rootView = inflater.inflate(R.layout.fragment_detail, container, false);
+            if(null!=intent && intent.hasExtra(Intent.EXTRA_TEXT)) {
+                String forecast = intent.getStringExtra(intent.EXTRA_TEXT);
+                TextView text = (TextView) rootView.findViewById(R.id.detail_text);
+                text.setText(forecast);
+            }
+
+
+
             return rootView;
         }
     }

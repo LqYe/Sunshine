@@ -1,6 +1,6 @@
 package com.wilsonye.sunshine;
 
-import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -94,7 +94,8 @@ import java.util.List;
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     String forecast = mForecastAdapter.getItem(i);
                     Toast.makeText(getActivity(),forecast, Toast.LENGTH_SHORT).show();
-
+                    Intent intent = new Intent(getActivity(), DetailActivity.class);
+                    intent.putExtra(Intent.EXTRA_TEXT, forecast);
                 }
             });
 
