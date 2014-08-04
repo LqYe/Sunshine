@@ -15,6 +15,20 @@
     <string name="pref_location_key">location</string>
 
     <!--Default postal code for location preference-->
-    <string name="pref_location_default">60657</string>
+    <string name="pref_location_default">60613</string>
+
+    <!--Label for the Temperature Unit preference -->
+    <string name="pref_temperature_unit_label">Temperature Unit</string>
+
+    <!--Key name fore Temperature Unit in SharedPreferences-->
+    <string name="pref_temperature_unit_key">units</string>
+
+    <!--Default Temperature Unit for Temperature Unit preference-->
+    <string name="pref_temperature_unit_default">Metric</string>
+
+    <string name="pref_units_metric">Metric</string>
+    <string name="pref_units_imperial">Imperial</string>
+
+
 
 </resources>
