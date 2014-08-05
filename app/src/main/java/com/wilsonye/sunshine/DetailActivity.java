@@ -1,10 +1,10 @@
 package com.wilsonye.sunshine;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.ShareActionProvider;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class DetailActivity extends Activity {
+public class DetailActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,23 +63,6 @@ public class DetailActivity extends Activity {
         }
 
         @Override
-        public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-            inflater.inflate(R.menu.detailfragment, menu);
-
-            MenuItem menuItem = menu.findItem(R.id.action_share);
-
-            ShareActionProvider mShareActionProvider =
-                    (ShareActionProvider) MenuItemCompat.getActionProvider(menuItem);
-
-            //Attach an intent to the shareActionProvider(the menu item).
-            if(mShareActionProvider != null) {
-                mShareActionProvider.setShareIntent(createShareForecastIntent());
-            } else {
-                Log.d (LOG_TAG, "Share Action Provider is null?");
-            }
-        }
-
-        @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
 
@@ -100,6 +83,23 @@ public class DetailActivity extends Activity {
             shareIntent.setType("text/plain");
             shareIntent.putExtra(Intent.EXTRA_TEXT, mForecastStr + FORECAST_SHARE_HASHTAG);
             return shareIntent;
+        }
+
+        @Override
+        public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+            inflater.inflate(R.menu.detailfragment, menu);
+
+            MenuItem menuItem = menu.findItem(R.id.action_share);
+
+            ShareActionProvider mShareActionProvider =
+                    (ShareActionProvider) MenuItemCompat.getActionProvider(menuItem);
+
+            //Attach an intent to the shareActionProvider(the menu item).
+            if(mShareActionProvider != null) {
+                mShareActionProvider.setShareIntent(createShareForecastIntent());
+            } else {
+                Log.d(LOG_TAG, "Share Action Provider is null?");
+            }
         }
     }
 }
