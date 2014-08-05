@@ -69,9 +69,9 @@ import java.util.Date;
             FetchWeatherTask weatherTask = new FetchWeatherTask();
             SharedPreferences sharedPref = PreferenceManager.
                     getDefaultSharedPreferences(getActivity());
-            String location = sharedPref.getString(getString(R.string.pref_location_key),
+            String postalCode = sharedPref.getString(getString(R.string.pref_location_key),
                     getString(R.string.pref_location_default));
-            weatherTask.execute(location);
+            weatherTask.execute(postalCode);
         }
 
         @Override
